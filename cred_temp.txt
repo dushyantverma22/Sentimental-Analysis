@@ -1,0 +1,11 @@
+pip install "mlflow<3"
+
+https://dagshub.com/dushyantverma414/Sentimental-Analysis.mlflow
+
+import dagshub
+dagshub.init(repo_owner='dushyantverma414', repo_name='Sentimental-Analysis', mlflow=True)
+
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
