@@ -210,5 +210,4 @@ __marimo__/
 local_s3/
 data/
 models/
-logs/data/
-reports/
+logs/
