@@ -4,6 +4,7 @@ import pickle
 from sklearn.linear_model import LogisticRegression
 import yaml
 from src.logger import logging
+import os
 
 
 def load_data(file_path: str) -> pd.DataFrame:
@@ -33,9 +34,14 @@ def train_model(X_train: np.ndarray, y_train: np.ndarray) -> LogisticRegression:
 def save_model(model, file_path: str) -> None:
     """Save the trained model to a file."""
     try:
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
         with open(file_path, 'wb') as file:
             pickle.dump(model, file)
+
         logging.info('Model saved to %s', file_path)
+
     except Exception as e:
         logging.error('Error occurred while saving the model: %s', e)
         raise
