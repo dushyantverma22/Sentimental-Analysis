@@ -61,8 +61,6 @@ The end-to-end solution covers data processing, model training, experiment track
 - **Prometheus** scrapes metrics from EKS LoadBalancer endpoint.  
 - **Grafana** visualizes live dashboards for model and system health.
 
----
-
 ## 🧭 ML System Architecture & Flow Chart
 
 ```mermaid
@@ -73,7 +71,7 @@ B --> C[Vectorization (CountVectorizer)]
 C --> D[Model Prediction (Logistic Regression)]
 D --> E[Display Result on UI]
 
-subgraph Backend Infrastructure
+subgraph Backend_Infrastructure
     F[MLflow - Experiment Tracking]
     G[DVC - Data & Model Versioning]
     H[AWS S3 - Remote Storage]
@@ -86,11 +84,10 @@ end
 D -->|Model Performance Logs| F
 C -->|Processed Data| G
 G -->|Store Files| H
-DockerImage --> I
+M[Docker Image] --> I
 I --> J
 J -->|Expose /metrics| K --> L
 
----
 
 ## 🛠️ Setup & Run Instructions
 
